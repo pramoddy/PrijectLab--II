@@ -1,0 +1,37 @@
+dowload jare file link=  https://jar-download.com/artifacts/mysql/mysql-connector-java/5.1.29/source-code
+
+
+
+package pramoddy;
+import java.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class first
+{
+static Connection con=null;
+static String databaseName="person";
+static String url="jdbc:mysql://localhost:3306/"+databaseName;
+static String username="root";
+static String password="";
+public static void main(String args[])throws ClassNotFoundException,SQLException
+{
+	Class.forName("com mysqljdbc driver").newInstance();
+	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","bmscecse");
+	
+	//create a Statement
+	
+	Statement mystmt=con.createStatement();
+	
+	//exicute sql query
+	ResultSet myRs=mystmt.executeQuery("select *from Student");
+	
+	//process the result
+	
+	while(myRs.next()) {
+		System.out.println("myRs.getString(rootname)" +myRs.getString("first_name"));
+				
+	}
+}
+}
